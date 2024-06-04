@@ -1,4 +1,10 @@
-const expenses = require('./input.txt');
+const fs = require('fs');
+
+// Read the file and split it into an array of numbers
+const expenses = fs
+  .readFileSync('./input.txt', 'utf-8')
+  .split('\n')
+  .map(Number);
 
 module.exports = function findProduct() {
   for (let i = 0; i < expenses.length; ++i) {
