@@ -14,9 +14,10 @@ module.exports = {
 let treeCount = 0;
 let column = 0;
 
+// right 3 , down 1
 for (let row = 0; row < input.length; row++) {
   if (input[row][column] === '#') {
-    treeCount++;
+    treeCount1++;
   }
   column = (column + 3) % input[row].length;
 }
