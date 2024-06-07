@@ -30,6 +30,8 @@ for (let passport of input) {
   let passportData = {};
   for (let field of passport) {
     let [key, value] = field.split(':');
+    // creating new property in passportData object,
+    // assign property(key) and value(value)
     passportData[key] = value;
   }
 
