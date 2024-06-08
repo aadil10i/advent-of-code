@@ -1,8 +1,3 @@
-// if missing field = invalid
-// treat missing cid as valid
-// valid = only missing cid, have all keys
-// count number of valid pass, in set cid = optional
-
 const path = require('path');
 const fs = require('fs');
 
@@ -53,7 +48,25 @@ function checkValid() {
     }
 
     if (isValid) {
-      validPassports++;
+      if (passportData['byr'] < 1920 || passportData['byr'] > 2002)
+        isValid = false;
+      if (passportData['iyr'] < 2010 || passportData['iyr'] > 2020)
+        isValid = false;
+      if (passportData['eyr'] < 2020 || passportData['eyr'] > 2030)
+        isValid = false;
+      if (passportData.hasOwnProperty('hgt')) {
+        let hgtValue = parseInt(passportData['hgt']);
+        let hgtUnit = passportData['hgt'].replace(hgtValue, '');
+
+        if (hgtUnit === 'cm') {
+          if (hgtValue < 150 || hgtValue > 193) isValid = false;
+        } else if (hgtUnit === 'in') {
+          if (hgtValue < 59 || hgtValue < 76) isValid = false;
+        } else {
+          isValid = false;
+        }
+      }
+      if 
     }
   }
 }
