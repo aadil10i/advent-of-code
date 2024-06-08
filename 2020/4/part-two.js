@@ -66,7 +66,6 @@ function checkValid() {
           isValid = false;
         }
       }
-      if 
     }
   }
 }
