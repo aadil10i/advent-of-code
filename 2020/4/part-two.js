@@ -38,6 +38,7 @@ function checkValid() {
       let [key, value] = field.split(':');
       passportData[key] = value;
     }
+
     let isValid = true;
 
     for (let key of requiredKeys) {
@@ -61,10 +62,14 @@ function checkValid() {
         if (hgtUnit === 'cm') {
           if (hgtValue < 150 || hgtValue > 193) isValid = false;
         } else if (hgtUnit === 'in') {
-          if (hgtValue < 59 || hgtValue < 76) isValid = false;
+          if (hgtValue < 59 || hgtValue > 76) isValid = false;
         } else {
           isValid = false;
         }
+      }
+      if (passportData.hasOwnProperty('hcl')) {
+        const hclRegex = /^#[0-9a-f]{6}$/;
+        if (!hclRegex.test(passportData['hcl'])) isValid = false;
       }
     }
   }
