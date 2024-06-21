@@ -72,8 +72,11 @@ function checkValid() {
         if (!hclRegex.test(passportData['hcl'])) isValid = false;
       }
     }
+    if (isValid) {
+      validPassports++;
+    }
   }
+  return validPassports;
 }
 
-console.log(checkValid());
-console.log(`There are ${validPassports} valid passports.`);
+console.log(`There are ${checkValid()} valid passports.`);
