@@ -73,12 +73,12 @@ function checkValid() {
       }
       if (
         passportData['ecl'] != 'amb' &&
-        'blu' &&
-        'brn' &&
-        'gry' &&
-        'grn' &&
-        'hzl' &&
-        'oth'
+        passportData['ecl'] != 'blu' &&
+        passportData['ecl'] != 'brn' &&
+        passportData['ecl'] != 'gry' &&
+        passportData['ecl'] != 'grn' &&
+        passportData['ecl'] != 'hzl' &&
+        passportData['ecl'] != 'oth'
       ) {
         isValid = false;
       }
