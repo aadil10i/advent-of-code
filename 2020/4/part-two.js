@@ -71,6 +71,21 @@ function checkValid() {
         const hclRegex = /^#[0-9a-f]{6}$/;
         if (!hclRegex.test(passportData['hcl'])) isValid = false;
       }
+      if (
+        passportData['ecl'] != 'amb' &&
+        'blu' &&
+        'brn' &&
+        'gry' &&
+        'grn' &&
+        'hzl' &&
+        'oth'
+      ) {
+        isValid = false;
+      }
+      if (passportData.hasOwnProperty('pid')) {
+        const pidRegex = /^\d{9}$/;
+        if (!pidRegex.test(passportData['pid'])) isValid = false;
+      }
     }
     if (isValid) {
       validPassports++;
