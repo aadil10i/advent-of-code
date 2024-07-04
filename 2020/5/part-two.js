@@ -28,7 +28,7 @@ function decodeSeat(pass) {
       rowHigh = rowMid;
     } else {
       rowLow = rowMid + 1;
-    }
+    
   }
 
   for (let i = 7; i < 10; i++) {
@@ -63,6 +63,12 @@ function findMySeat(input) {
   seatIds.sort((a, b) => a - b);
   for (let Id of seatIds) {
     console.log(Id);
+
+    for (let i = 0; i < Id; ++i) {
+      if (i + 1 != Id[i] + 1) {
+        console.log('here is the gap')
+      }
+    }
   }
 }
 
