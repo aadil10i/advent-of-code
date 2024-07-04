@@ -28,9 +28,8 @@ function decodeSeat(pass) {
       rowHigh = rowMid;
     } else {
       rowLow = rowMid + 1;
-    
+    }
   }
-
   for (let i = 7; i < 10; i++) {
     const colMid = Math.floor((colLow + colHigh) / 2);
     if (pass[i] === 'L') {
@@ -64,19 +63,15 @@ function findMySeat(input) {
   for (let Id of seatIds) {
     console.log(Id);
 
-    for (let i = 0; i < Id; ++i) {
-      if (i + 1 != Id[i] + 1) {
-        console.log('here is the gap')
+    for (let i = 1; i < seatIds.length - 1; i++) {
+      if (seatIds[i] !== seatIds[i - 1] + 1) {
+        return seatIds[i] - 1;
       }
     }
+    return null;
   }
 }
 
-console.log(findMySeat(input));
+const mySeatId = findMySeat(input);
+console.log('my seat id is:', mySeatId);
 console.log('highest seat id', findHighestSeatID(input));
-
-// part-two
-// all seats occupied
-// some seats at very front and back are occupied
-// my seat is not at very front or back
-// seats with id just before and after mine are in the list
