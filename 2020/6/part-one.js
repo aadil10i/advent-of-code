@@ -26,5 +26,5 @@ function findAnswers(input) {
 
   console.log('total sum of unique answers is', totalSum);
 }
-
+dd;
 findAnswers(input);
