@@ -13,7 +13,7 @@ module.exports = {
 function countUnique(group) {
   const uniqueLetters = new Set(group.replace(/\n/g, '').split(''));
   return uniqueLetters.size;
-
+}
 
 function countCommonLetters(group) {
   const lines = group.split('\n');
@@ -25,7 +25,7 @@ function countCommonLetters(group) {
     const commonLetters = new Set(lines[0]);
     for (let i = 1; i < lines.length; i++) {
       const lineLetters = new Set(lines[i]);
-      commonLetters.forEach(letter => {
+      commonLetters.forEach((letter) => {
         if (!lineLetters.has(letter)) {
           commonLetters.delete(letter);
         }
