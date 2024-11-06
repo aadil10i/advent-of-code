@@ -38,7 +38,6 @@ function checkValid() {
       let [key, value] = field.split(':');
       passportData[key] = value;
     }
-
     let isValid = true;
 
     for (let key of requiredKeys) {
